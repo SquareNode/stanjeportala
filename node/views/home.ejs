@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Portali</title>
+		<style>
+		.no_display {
+			display: none;
+		}
+		
+		h1 {
+			font-family: Helvetica, sans-serif;
+		}
+		
+		a {
+			font-family: Rockwell, sans-serif;
+			text-decoration : none;
+			color: rgb(12,46,200);
+		}
+		
+		a:hover {
+			color:white;
+			background-color: rgba(12,46,200, 0.6);
+		}
+		img {
+			max-width: 150px;
+			max-height: 100px;
+			padding-top: 1%;
+		}
+		
+		#date {
+			font-family : Verdana;
+			font-size: 50px;
+			color: rgba(14, 100, 50, 0.6);
+		}
+		
+		button {
+			outline: 1px solid rgba(12,46,150, 0.6);
+			height: 30px;
+		}
+		
+		</style>
+	</head>
+	<body>
+	<% const d = new Date() %>
+	<h1 id = "date"><%=d.getDate() + "." +  d.getMonth() + "." + d.getFullYear()%></h1>
+	
+	<div class="calendar"></div>
+	
+	
+	
+	<% for(let i = 0; i < data.news.length; i++) {%>
+	
+	<div class="container">
+	
+		<% let name = data.origin[i]; %>
+		<img src="<%=data.logos[name]%>" alt="<%=name %>">
+		<ul>
+		<% let k = 0; %>
+		<% for(let j = 0; j < data.news[i].length; j++) { %>
+			
+			
+			<li <%= k++ > 10 ? "class = no_display" : "" %>><a href="<%=data.news[i][j].get("link") %>"><%=data.news[i][j].get("title") %></a></li>
+		<% } %>
+		</ul>
+		<button>Load more</button>
+	
+	</div>
+	
+	<% } %>
+	
+	
+	<script>
+		
+		/*
+		function generateCalendar() {
+		
+			const div = document.getElementsByClassName('calendar')[0];
+			const table = document.createElement('table');
+			//table.style
+			
+		}
+		
+		generateCalendar();
+		*/
+		
+		let btns = document.getElementsByTagName('button');
+		
+		for (let i = 0;i < btns.length; i++) {
+			
+			btns[i].addEventListener('click', function () {
+				
+				const parent = btns[i].parentElement;
+				const lis = parent.getElementsByClassName('no_display');
+				
+				console.log(lis.length);
+				//buggy...
+				if(lis.length > 0) {
+					let to_display = 10;
+					if(lis.length < to_display)
+						to_display = lis.length;
+					for(let i = 0; i < to_display; i++)
+						lis[i].classList.remove('no_display');
+					
+					//inner html?
+					btns[i].innerHTML = `load more (${lis.length} more)`
+						
+				}
+				
+			});
+		}
+	</script>
+	
+	</body>
+</html>
