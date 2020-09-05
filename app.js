@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 
 const db = 'mongodb+srv://Dzoni:dzoni123@cluster0.udsmc.mongodb.net/test?retryWrites=true&w=majority';
 
-mongoose.connect(db, { useNewUrlParser : true, useUnifiedTopology: true });
+mongoose.connect(db, { useNewUrlParser : true, useUnifiedTopology: true })
+	.then(console.log('connected to DB!'))
+	.catch((err) => console.log(err));
 
 // mongoose.connection.on('open', function (ref) {
     // console.log('Connected to mongo server.');
