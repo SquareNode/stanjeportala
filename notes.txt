@@ -17,6 +17,7 @@ what is the third argument in mongoose.model ???
 
 TODO
 
+request date, current date on load done
 check every script for errors (danas, strip()) IN PROGRESS
 paths -> replace / with alt for all systems
 run all scripts at once -> IN PROGRESS

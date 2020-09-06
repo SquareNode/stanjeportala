@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Portali</title>
+		<link rel="icon" type="image/png" href="smiley.png" sizes="32x32">
 		<style>
 		.no_display {
 			display: none;
@@ -42,12 +43,12 @@
 		</style>
 	</head>
 	<body>
-	<% const d = new Date() %>
-	<h1 id = "date"><%=d.getDate() + "." +  d.getMonth() + "." + d.getFullYear()%></h1>
-	
-	<div class="calendar"></div>
-	
-	
+	<h1 id = "date"><%=req_date%></h1>
+
+	<form action="/">
+		<input type="date" name="date" value="1.1.2012.">
+		<input type="submit">
+	</form>
 	
 	<% for(let i = 0; i < data.news.length; i++) {%>
 	

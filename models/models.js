@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+//dont really need the schema...
 const schema = new mongoose.Schema({
 	_id : mongoose.Schema.Types.ObjectId,
 	title : String,
@@ -29,8 +31,11 @@ const logo = {
 //date_string 2020-09-04
 
 const today = new Date();
-const def = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-// console.log(typeof(def));
+const day = today.getDate(), year = today.getFullYear(), month = today.getMonth();
+
+const def = year + '-' + (month + 1 < 10 ? '0' + (month + 1) : month + 1) + '-' + (day < 10 ? '0' + day : day);
+
+// console.log(def);
 
 module.exports.getData = async function (date_string = def) {
 	
@@ -38,11 +43,12 @@ module.exports.getData = async function (date_string = def) {
 	try {
 		for(let i = 0; i < sources.length; i++) {
 			let News = mongoose.model(sources[i], schema, sources[i]);
-			// const query = {
-				// date: date_string
-			// }
-			const curr = await News.find({}).exec();
-			let j = 0;
+			
+			const query = {
+				date: date_string
+			}
+			//console.log(query);
+			const curr = await News.find(query).exec();
 			//copying - concat not working here
 			res.push(curr);
 		}
