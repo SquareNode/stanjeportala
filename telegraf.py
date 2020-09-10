@@ -8,8 +8,6 @@ Created on Tue Sep	1 12:54:10 2020
 
 import sys, requests as reqs, datetime
 from bs4 import BeautifulSoup
-from tools import get_titles
-
 
 def main():
 	
@@ -22,24 +20,6 @@ def main():
 	page = BeautifulSoup(telegraf.text, 'html.parser')
 	
 	all_news = page.findAll('div', {'class' : 'grid-image-wrapper'})
-	
-	# if len(old_titles) > 0:
-		
-		# with open(file_name, 'a', encoding = 'utf-8') as f:
-			# for news in all_news:
-				# title = news.a['title']
-				# link = news.a['href']
-				# if not title in old_titles:
-					# f.write(f'{title}, {link}\n')
-					# old_titles.add(title)
-					# print('added title', title)
-	# else:
-		# print('adding all titles...')
-		# with open(file_name, 'w', encoding='utf-8') as f:
-			# for news in all_news:
-				# title = news.a['title']
-				# link = news.a['href']
-				# f.write(f'{title}, {link}\n')
 	
 	res = dict()
 	
@@ -55,5 +35,3 @@ if __name__ == '__main__':
 	
 	for k,v in news.items():
 		print(v)
-			
-				

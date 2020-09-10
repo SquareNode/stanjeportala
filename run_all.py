@@ -12,8 +12,7 @@ checking for duplicates while doing it
 
     
 import kurir, alo, n1, srbijadanas, telegraf, espreso, b92, blic, danas
-import informer, novosti
-import pymongo, datetime
+import informer, novosti, pymongo, datetime
 from pymongo import MongoClient
 
 def do_work(db, col_name, scraped_news):
@@ -76,49 +75,3 @@ if __name__ == '__main__':
     news_dict = novosti.main()
     do_work(db, 'novosti', news_dict)
     
-    
-    # titles = [x for x in news.keys()]
-    # links = [x for x in news.values()]
-    
-    # db_news = col.find()
-    
-    # print(type(datetime.datetime.now()))
-    
-    # all = col.find()
-    
-    # print(all.)
-    
-    # print(col.count_documents({}))
-
-    # for n in col.find({})[:10]:
-        # print(n['link'])
-        
-    
-    
-    # specific = col.find({ 'link' : 'http://rs.n1info.com/Zdravlje/a636359/SZO-Vakcinacija-protiv-korone-2021.html'})
-
-    # for k in specific:
-        # print(k['title'][:5])
-        
-    # spec = col.find_one({ 'link' : 'http://rs.n1info.com/Zdravlje/a636359/SZO-Vakcinacija-protiv-korone-2021.html'})
-    # print(spec['link'])
-        
-    # for k,v in news_dict.items():
-        
-        # obj = { 'title': k, 'link' : v }
-        
-        # found = col.find_one(obj)
-        # print(found)
-        # if not found:
-            # col.insert_one(obj)
-            # num_inserted+=1
-        
-    
-    # found = col.find_one({'a':'b'})
-    # print(found)
-    
-    # 
-    # print(f'inserted {num_inserted} documents')
-    
-    
-

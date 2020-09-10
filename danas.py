@@ -20,22 +20,6 @@ def main():
 
 	titles = page.findAll('h3')
 	
-   
-	# if len(my_set) > 0:
-		# with open(file_name, 'a', 
-				  # encoding = 'utf-8') as f:
-			# for title in titles:
-				# if title.text not in my_set:
-					# f.write(f'{title.text}, {title.a["href"]}\n')
-					# print('added title: ', title.text)
-					# my_set.add(title.text)
-	# else:
-		# print('adding all titles...')
-		# with open(file_name, 'w', encoding='utf-8') as f:
-			# for title in titles:
-				# f.write(f'{title.text}, {title.a["href"]}\n')
-				
-	
 	res = dict()
 	
 	for title in titles:
