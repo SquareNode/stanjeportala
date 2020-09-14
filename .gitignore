@@ -1,0 +1,5 @@
+test.txt
+node_modules
+__pycache__
+.env
+notes.txt
