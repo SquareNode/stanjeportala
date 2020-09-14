@@ -6,8 +6,6 @@ const dotenv = require('dotenv').config();
 const db = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}`
 + `@cluster0.udsmc.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
-console.log(db);
-
 mongoose.connect(db, { useNewUrlParser : true, useUnifiedTopology: true });
 
 const app = express();
