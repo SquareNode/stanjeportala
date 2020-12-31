@@ -52,37 +52,66 @@ if __name__ == '__main__':
 	
 	db = cluster['test']
 	col = db['topnews']
+	
+	try:
+		news_dict = kurir.main()
+		do_work(db, 'kurir', news_dict)
+	except:
+		print('error')
 		
-	news_dict = kurir.main()
-	do_work(db, 'kurir', news_dict)
+	try:
+		news_dict = alo.main()
+		do_work(db, 'alo', news_dict)
+	except:
+		print('error')
+		
+	try:
+		news_dict = n1.main()
+		do_work(db, 'n1', news_dict)
+	except:
+		print('error')
 	
-	news_dict = alo.main()
-	do_work(db, 'alo', news_dict)
+	try:
+		news_dict = danas.main()
+		do_work(db, 'danas', news_dict)
+	except:
+		print('error')
 	
-	news_dict = n1.main()
-	do_work(db, 'n1', news_dict)
+	try:
+		news_dict = srbijadanas.main()
+		do_work(db, 'srbijadanas', news_dict)
+	except:
+		print('error')
 	
-	news_dict = danas.main()
-	do_work(db, 'danas', news_dict)
+	try:
+		news_dict = blic.main()
+		do_work(db, 'blic', news_dict)
+	except:
+		print('error')
+	try:
+		news_dict = espreso.main()
+		do_work(db, 'espreso', news_dict)
+	except:
+		print('error')
+	try:
+		news_dict = telegraf.main()
+		do_work(db, 'telegraf', news_dict)
+	except:
+		print('error')
+	try:
+		news_dict = b92.main()
+		do_work(db, 'b92', news_dict)
+	except:
+		print('error')
+	try:
+		news_dict = informer.main()
+		do_work(db, 'informer', news_dict)
+	except:
+		print('error')
 	
-	news_dict = srbijadanas.main()
-	do_work(db, 'srbijadanas', news_dict)
-	
-	news_dict = blic.main()
-	do_work(db, 'blic', news_dict)
-	
-	news_dict = espreso.main()
-	do_work(db, 'espreso', news_dict)
-	
-	news_dict = telegraf.main()
-	do_work(db, 'telegraf', news_dict)
-	
-	news_dict = b92.main()
-	do_work(db, 'b92', news_dict)
-	
-	news_dict = informer.main()
-	do_work(db, 'informer', news_dict)
-	
-	news_dict = novosti.main()
-	do_work(db, 'novosti', news_dict)
+	try:
+		news_dict = novosti.main()
+		do_work(db, 'novosti', news_dict)
+	except:
+		print('error')
 	
