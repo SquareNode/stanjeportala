@@ -18,7 +18,7 @@ def main():
 	
 	page = soup(danas_rs.text, 'html.parser')
 
-	titles = page.findAll('h3')
+	titles = page.findAll('h3', {'class' : 'article-post-title'} )
 	
 	res = dict()
 	
