@@ -37,7 +37,7 @@ def main():
 	res = dict()
 	
 	for news in all_news:
-		if check_date(news):
+		#if check_date(news):
 			title = news.title.getText()
 			link = news.link.getText()
 			res[title] = link
